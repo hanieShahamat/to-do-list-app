@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+    <title>Document</title>
+</head>
+<body class="">
+    <!-- <div class="container mx-auto my-auto px-12 pt-8 bg-neutral-50">
+        <header class="flex items-center justify-between py-10 text-2xl font-medium">
+            <h1>Today</h1>
+            <i class="ri-more-2-fill"></i>
+        </header> -->
+        <!-- <main class="" >
+            <div class="flex items-center border-b-2 border-neutral-200 pb-4">
+                <h2 class="text-xl font-medium">My Projects</h2>
+            </div>
+            <div class="row">
+                <input type="text" id="input-box" placeholder="add your task">
+                <button onclick="addTask()">Add</button>
+            </div>
+            <section class=" py-4 text-lg">
+                <ul class="py-3 px-2 select-none cursor-pointer relative" id="list-container">
+                    
+                </ul>
+            </section> -->
+ 
+            <div class="container mx-auto my-auto px-12 pt-8 bg-neutral-50 max-w-lg">
+              <header class="flex items-center justify-between text-2xl pb-6 font-medium">
+                <h2>Today</h2>
+                <i class="ri-more-2-fill"></i>
+              </header>
+              <fieldset id="to-do-list" class="space-y-3 ">
+                <legend class="text-base font-semibold text-slate-900 dark:text-slate-200 border-b-2 border-neutral-200 pb-4">My Projects</legend>
+                <div id="item" class="grid grid-cols-[1fr_24px] items-center gap-6 border-b-2 border-neutral-200 pb-4">
+                  <label class="peer grid grid-cols-[auto_1fr] items-center gap-3 rounded-md px-2 hover:bg-slate-100">
+                    <input type="checkbox" class="peer size-3.5 appearance-none rounded-sm border border-slate-300 accent-pink-500 dark:accent-pink-600 checked:appearance-auto" checked="">
+                    <span class="select-none text-slate-700 peer-checked:text-slate-400 peer-checked:line-through">Buy 1</span>
+                  </label>
+                  <div class="delete-btn size-[26px] rounded-md p-1 hover:bg-red-50 hover:text-red-500 peer-has-[:checked]:hidden">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div id="item" class="grid grid-cols-[1fr_24px] items-center gap-6 border-b-2 border-neutral-200 pb-4">
+                  <label class="peer grid grid-cols-[auto_1fr] items-center gap-3 rounded-md px-2 hover:bg-slate-100">
+                    <input type="checkbox" class="peer size-3.5 appearance-none rounded-sm border border-slate-300 accent-pink-500 dark:accent-pink-600 checked:appearance-auto">
+                    <span class="select-none text-slate-700 peer-checked:text-slate-400 peer-checked:line-through">Buy 2</span>
+                  </label>
+                  <div class="delete-btn size-[26px] rounded-md p-1 hover:bg-red-50 hover:text-red-500 peer-has-[:checked]:hidden">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div id="item" class="grid grid-cols-[1fr_24px] items-center gap-6 border-b-2 border-neutral-200 pb-4">
+                  <label class="peer grid grid-cols-[auto_1fr] items-center gap-3 rounded-md px-2 hover:bg-slate-100">
+                    <input type="checkbox" class="peer size-3.5 appearance-none rounded-sm border border-slate-300 accent-pink-500 dark:accent-pink-600 checked:appearance-auto">
+                    <span class="select-none text-slate-700 peer-checked:text-slate-400 peer-checked:line-through">Buy 3</span>
+                  </label>
+                  <div class="delete-btn size-[26px] rounded-md p-1 hover:bg-red-50 hover:text-red-500 block peer-has-[:checked]:hidden">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+              
+        <!-- </main>
+    </div> -->
+    <script src="./Todo.js"></script>
+</body>
+</html>
