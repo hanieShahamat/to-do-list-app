@@ -10,113 +10,89 @@
     <title>Document</title>
   </head>
   <body class="">
-    <!-- <div class="container mx-auto my-auto px-12 pt-8 bg-neutral-50">
-        <header class="flex items-center justify-between py-10 text-2xl font-medium">
-            <h1>Today</h1>
-            <i class="ri-more-2-fill"></i>
-        </header> -->
-        <!-- <main class="" >
-            <div class="flex items-center border-b-2 border-neutral-200 pb-4">
-                <h2 class="text-xl font-medium">My Projects</h2>
+    <div class="container mx-auto my-auto px-12 pt-8 bg-neutral-50 max-w-lg">
+      <header class="flex items-center justify-between text-2xl pb-6 font-medium">
+        <h1>Today</h1>
+        <i class="ri-more-2-fill"></i>
+      </header>
+      <ul id="to-do-list" class="space-y-3 ">
+        <h2 class="text-base font-semibold text-slate-900 dark:text-slate-200 border-b-2 border-neutral-200 pb-4">My Projects</h2>
+        <li id="item" class="grid grid-cols-[1fr_24px] items-center gap-6 border-b-2 border-neutral-200 pb-4">
+          <label class="peer grid grid-cols-[auto_1fr] items-center gap-3 rounded-md px-2 hover:bg-slate-100">
+            <input type="checkbox" class="peer size-3.5 appearance-none rounded-sm border border-slate-300 accent-orange-600 dark:accent-orange-700 checked:appearance-auto">
+            <span class="select-none text-slate-700 peer-checked:text-slate-400 peer-checked:line-through">Buy 1</span>
+          </label>
+          <div class="delete-btn size-[26px] rounded-md p-1 relative inline-block text-left" id="dropdownButton">
+            <div onclick="toggleDropdown()">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer"  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+              </svg>                       
             </div>
-            <div class="row">
-                <input type="text" id="input-box" placeholder="add your task">
-                <button onclick="addTask()">Add</button>
+            <div class="absolute hidden right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" id="dropdown" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+              <div class="py-1" role="none">
+                <a href="#" class="text-gray-700 block px-4 py-2 text-sm  hover:bg-zinc-300" role="menuitem" tabindex="-1" id="menu-item-0">Edit</a>
+                <a href="#" class="text-gray-700 block px-4 py-2 text-sm  hover:bg-zinc-300" role="menuitem" tabindex="-1" id="menu-item-1">Delete</a>
+              </div>
             </div>
-            <section class=" py-4 text-lg">
-                <ul class="py-3 px-2 select-none cursor-pointer relative" id="list-container">
-                    
-                </ul>
-            </section> -->
- 
-            <div class="container mx-auto my-auto px-12 pt-8 bg-neutral-50 max-w-lg">
-              <header class="flex items-center justify-between text-2xl pb-6 font-medium">
-                <h1>Today</h1>
-                <i class="ri-more-2-fill"></i>
-              </header>
-              <ul id="to-do-list" class="space-y-3 ">
-                <h2 class="text-base font-semibold text-slate-900 dark:text-slate-200 border-b-2 border-neutral-200 pb-4">My Projects</h2>
-                <li id="item" class="grid grid-cols-[1fr_24px] items-center gap-6 border-b-2 border-neutral-200 pb-4">
-                  <label class="peer grid grid-cols-[auto_1fr] items-center gap-3 rounded-md px-2 hover:bg-slate-100">
-                    <input type="checkbox" class="peer size-3.5 appearance-none rounded-sm border border-slate-300 accent-orange-600 dark:accent-orange-700 checked:appearance-auto">
-                    <span class="select-none text-slate-700 peer-checked:text-slate-400 peer-checked:line-through">Buy 1</span>
-                  </label>
-                  <div class="delete-btn size-[26px] rounded-md p-1 relative inline-block text-left" id="dropdownButton">
-                    <div onclick="toggleDropdown()">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer"  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="menu-button" aria-expanded="true" aria-haspopup="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                        </svg>                       
-                    </div>
-                    <div class="absolute hidden right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" id="dropdown" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-                      <div class="py-1" role="none">
-                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm  hover:bg-zinc-300" role="menuitem" tabindex="-1" id="menu-item-0">Edit</a>
-                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm  hover:bg-zinc-300" role="menuitem" tabindex="-1" id="menu-item-1">Delete</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between pl-6 text-sm font-light">
-                    <span class="text-zinc-500">hoooo</span>
-                    <span class="text-lime-600"><i class="ri-time-line"></i> dateeee</span>
-                  </div>
-                </li>
-                <li id="item" class="grid grid-cols-[1fr_24px] items-center gap-6 border-b-2 border-neutral-200 pb-4">
-                  <label class="peer grid grid-cols-[auto_1fr] items-center gap-3 rounded-md px-2 hover:bg-slate-100">
-                    <input type="checkbox" class="peer size-3.5 appearance-none rounded-sm border border-slate-300 accent-orange-600 dark:accent-orange-700 checked:appearance-auto" >
-                    <span class="select-none text-slate-700 peer-checked:text-slate-400 peer-checked:line-through">Buy 2</span>
-                  </label>
-                  <div class="delete-btn size-[26px] rounded-md p-1 relative inline-block text-left" id="dropdownButton">
-                    <div onclick="toggleDropdown()">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer"  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="menu-button" aria-expanded="true" aria-haspopup="true" >
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                        </svg>                       
-                    </div>
-                    <div class="absolute hidden inset-y-0 left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" id="dropdown" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-                      <div class="py-1" role="none">
-                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-red-400" role="menuitem" tabindex="-1" id="menu-item-0" >Edit</a>
-                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1" >Delete</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between pl-6 text-sm font-light">
-                    <span class="text-zinc-500">hoooo</span>
-                    <span class="text-lime-600"><i class="ri-time-line"></i> dateeee</span>
-                  </div>
-                </li>
-                <li id="item" class="grid grid-cols-[1fr_24px] items-center gap-6 border-b-2 border-neutral-200 pb-4">
-                  <label class="peer grid grid-cols-[auto_1fr] items-center gap-3 rounded-md px-2 hover:bg-slate-100">
-                    <input type="checkbox" class="peer size-3.5 appearance-none rounded-sm border border-slate-300 accent-orange-600 dark:accent-orange-700 checked:appearance-auto" >
-                    <span class="select-none text-slate-700 peer-checked:text-slate-400 peer-checked:line-through">Buy 3</span>
-                  </label>
-                  <div class="delete-btn size-[26px] rounded-md p-1 relative inline-block text-left" id="dropdownButton">
-                    <div onclick="toggleDropdown()">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer"  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="menu-button" aria-expanded="true" aria-haspopup="true" >
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                        </svg>                       
-                    </div>
-                    <div class="absolute hidden inset-x-0 bottom-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" id="dropdown" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-                      <div class="py-1" role="none">
-                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-zinc-300" role="menuitem" tabindex="-1" id="menu-item-0" >Edit</a>
-                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Delete</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex items-center justify-between pl-6 text-sm font-light">
-                    <span class="text-zinc-500">hoooo</span>
-                    <span class="text-lime-600"><i class="ri-time-line"></i> dateeee</span>
-                  </div>
-                </li>
-              </ul>
-              
-              <footer>
-                <div class="text-gray-300 flex items-end justify-end my-12 py-8 z-10">
-                  <button class="rounded-full p-2 px-4 bg-orange-600 text-black" id="addItem">+</button>
-                </div>
-              </footer>
+          </div>
+          <div class="flex items-center justify-between pl-6 text-sm font-light">
+            <span class="text-zinc-500">hoooo</span>
+            <span class="text-lime-600"><i class="ri-time-line"></i> dateeee</span>
+          </div>
+        </li>
+        <li id="item" class="grid grid-cols-[1fr_24px] items-center gap-6 border-b-2 border-neutral-200 pb-4">
+          <label class="peer grid grid-cols-[auto_1fr] items-center gap-3 rounded-md px-2 hover:bg-slate-100">
+            <input type="checkbox" class="peer size-3.5 appearance-none rounded-sm border border-slate-300 accent-orange-600 dark:accent-orange-700 checked:appearance-auto" >
+            <span class="select-none text-slate-700 peer-checked:text-slate-400 peer-checked:line-through">Buy 2</span>
+          </label>
+          <div class="delete-btn size-[26px] rounded-md p-1 relative inline-block text-left" id="dropdownButton">
+            <div onclick="toggleDropdown()">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer"  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="menu-button" aria-expanded="true" aria-haspopup="true" >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+              </svg>                       
             </div>
-
-              
-        <!-- </main>
-    </div> -->
+            <div class="absolute hidden inset-y-0 left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" id="dropdown" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+              <div class="py-1" role="none">
+                <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-red-400" role="menuitem" tabindex="-1" id="menu-item-0" >Edit</a>
+                <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1" >Delete</a>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between pl-6 text-sm font-light">
+            <span class="text-zinc-500">hoooo</span>
+            <span class="text-lime-600"><i class="ri-time-line"></i> dateeee</span>
+          </div>
+        </li>
+        <li id="item" class="grid grid-cols-[1fr_24px] items-center gap-6 border-b-2 border-neutral-200 pb-4">
+          <label class="peer grid grid-cols-[auto_1fr] items-center gap-3 rounded-md px-2 hover:bg-slate-100">
+            <input type="checkbox" class="peer size-3.5 appearance-none rounded-sm border border-slate-300 accent-orange-600 dark:accent-orange-700 checked:appearance-auto" >
+            <span class="select-none text-slate-700 peer-checked:text-slate-400 peer-checked:line-through">Buy 3</span>
+          </label>
+          <div class="delete-btn size-[26px] rounded-md p-1 relative inline-block text-left" id="dropdownButton">
+            <div onclick="toggleDropdown()">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer"  fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" id="menu-button" aria-expanded="true" aria-haspopup="true" >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+              </svg>                       
+            </div>
+            <div class="absolute hidden inset-x-0 bottom-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" id="dropdown" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+              <div class="py-1" role="none">
+                <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-zinc-300" role="menuitem" tabindex="-1" id="menu-item-0" >Edit</a>
+                <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Delete</a>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between pl-6 text-sm font-light">
+            <span class="text-zinc-500">hoooo</span>
+            <span class="text-lime-600"><i class="ri-time-line"></i> dateeee</span>
+          </div>
+        </li>
+      </ul>
+      <footer>
+        <div class="text-gray-300 flex items-end justify-end my-12 py-8 z-10">
+          <button class="rounded-full p-2 px-4 bg-orange-600 text-black" id="addItem">+</button>
+        </div>
+      </footer>
+    </div>
     <script src="./Todo.js"></script>
   </body>
 </html>
