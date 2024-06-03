@@ -1,15 +1,14 @@
 
-const todoListEl = document.getElementById("todo_list")
 
-class ToDo {
-  constructor(id, title, description, dateDone) {
-    this.id = id
-    this.title = title
-    this.description = description
-    this.dateDone = dateDone
-    this.dateCreated = new Date()
-  }
-}
+// class ToDo {
+//   constructor(id, title, description, dateDone) {
+//     this.id = id
+//     this.title = title
+//     this.description = description
+//     this.dateDone = dateDone
+//     this.dateCreated = new Date()
+//   }
+// }
 
 // const todoList = []
 // todoList.push(new ToDo("1", "Do 30 minutes of yoga", "Fitness #",new Date()))
@@ -37,12 +36,13 @@ class ToDo {
 // const todoList:ToDo[]
 
 let itemBtn = document.getElementById("item")
-let deleteBtn = document.getElementById("delete")
-let list = document.querySelector("#to-do-list")
+let deleteBtn = document.getElementsByClassName("delete")
+let ulList = document.querySelector("#list")
+
 
 //Delete Item
-list.addEventListener("click", (e)=>{
-  if(e.target.nodeName == "DIV" && e.target.className == "delete-btn"){
+ulList.addEventListener("click", (e)=>{
+  if(e.target.nodeName == "A" && e.target.className == "delete"){
     e.target.parentNode.remove()
   }
 })
@@ -52,4 +52,16 @@ list.addEventListener("click", (e)=>{
 function toggleDropdown(){
   let dropdown = document.querySelector("#dropdownButton #dropdown");
   dropdown.classList.toggle("hidden");
+}
+
+//Dialog
+function showDialog(){
+  let Dialog = document.getElementById("dialog")
+  Dialog.classList.remove("hidden");
+  Dialog.classList.add("relative");
+}
+function hideDialog(){
+  let Dialog = document.getElementById("dialog")
+  Dialog.classList.remove("relative");
+  Dialog.classList.add("hidden");
 }
