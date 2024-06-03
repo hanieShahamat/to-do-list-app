@@ -46,3 +46,10 @@ list.addEventListener("click", (e)=>{
     e.target.parentNode.remove()
   }
 })
+
+
+//dropdown item
+function toggleDropdown(){
+  let dropdown = document.querySelector("#dropdownButton #dropdown");
+  dropdown.classList.toggle("hidden");
+}
