@@ -29,23 +29,18 @@
 
 // renderTodos()
 
-// const deleteItem = (id)=>{
-//     // delete item from array
-//     renderTodos() 
-// }
-// const todoList:ToDo[]
 
-let itemBtn = document.getElementById("item")
-let deleteBtn = document.getElementsByClassName("delete")
-let ulList = document.querySelector("#list")
+
+let ulList = document.querySelector("#list");
 
 
 //Delete Item
-ulList.addEventListener("click", (e)=>{
-  if(e.target.nodeName == "A" && e.target.className == "delete"){
-    e.target.parentNode.remove()
-  }
-})
+function deleteItem(){
+  document.querySelector("li").remove()
+}
+
+
+
 
 
 //dropdown item
