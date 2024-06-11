@@ -6,6 +6,9 @@ const doneBtnEl = document.querySelector("#done");
 const DialogEl = document.querySelector("#dialog");
 const deleteBtnEl = document.querySelector("#deleteBtn");
 
+let modalMode = ""
+let editingItemid = ""
+
 class ToDo {
   constructor(id, title, description, dateDone) {
     this.id = id
@@ -19,6 +22,22 @@ class ToDo {
 let todoList = []
 
 
+// Show and prepare Edit item Modal
+function showEditItemDialog(id){
+  editingItemid = id
+  const todoToEdit = todoList.find((todo)=>{
+    if(todo.id == id){
+      return(todo);
+    }
+  })
+  console.log("found item: ", todoToEdit);
+  addTitleEl.value = todoToEdit.title;
+  addDescriptionEl.value = todoToEdit.description;
+  addTimeEl.value = todoToEdit.dateDone;
+
+  modalMode = "edit"
+  showDialog();
+}
 
 const renderTodos = () => {
       //clear ul before adding
@@ -31,7 +50,7 @@ const renderTodos = () => {
       <span class="select-none text-slate-700 peer-checked:text-slate-400 peer-checked:line-through">${todo.title}</span>
     </label>
     <div class="flex btn">
-      <button onclick="editItem(${todo.id})" class="rounded-sm hover:bg-orange-300 hover:rounded-md">
+      <button onclick="showEditItemDialog(${todo.id})" class="rounded-sm hover:bg-orange-300 hover:rounded-md">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
         </svg>
@@ -44,7 +63,7 @@ const renderTodos = () => {
     </div>
     <div class="flex items-center justify-between pl-6 text-sm font-light">
       <span class="text-zinc-500">${todo.description}</span>
-      <span class="text-lime-600"><i class="ri-time-line"></i>${todo.Date}</span>
+      <span class="text-lime-600"><i class="ri-time-line"></i>${todo.dateDone}</span>
     </div>
   </li>`
     const newEl = document.createElement("div")
@@ -55,53 +74,86 @@ const renderTodos = () => {
   })
 }
 
-todoList.push(new ToDo(Math.random(),"title1","descriptio1n",new Date()))
-todoList.push(new ToDo(Math.random(),"title2","description2",new Date()))
-todoList.push(new ToDo(Math.random(),"title3","description3",new Date()))
+// todoList.push(new ToDo(1,"title1","descriptio1n",new Date()))
+// todoList.push(new ToDo(2,"title2","description2",new Date()))
+// todoList.push(new ToDo(3,"title3","description3",new Date()))
 renderTodos()
 
 
 
 
 
-
-//Add Item
+// done btn
 doneBtnEl.addEventListener("click", (e)=>{
-  if (!addTitleEl.value){
+  const titleInputValue = addTitleEl.value
+  const descriptonInputValue = addDescriptionEl.value
+  const dateInputValue = addTimeEl.value
+
+  // do nothing if title is empty
+  if (!titleInputValue){
     return
   }
-
-  todoList.push(new ToDo(new Date().getTime(),addTitleEl.value, addDescriptionEl.value,addTimeEl.value))
 
   // clear dialog
   addTitleEl.value = ""
   addDescriptionEl.value = ""
   addTimeEl.value = ""
-  hideDialog()
+
+  // call to fn
+  const todo = new ToDo(new Date().getTime(),titleInputValue, descriptonInputValue,dateInputValue)
+  if (modalMode === "new"){
+    console.log("new item");
+    addTodo(todo)
+  }
+  else if (modalMode === "edit"){
+    console.log("edit item");
+    editTodo(editingItemid , todo)
+  } else {
+    console.error("error")
+  }
 
   // render todos
   renderTodos()
 
+  hideDialog()
+
 })
 
-// Edit item
-function editItem(id){
-  const newTodosList = todoList.filter((todo)=>{
-    return todo.id !== id
-  })
-  todoList = newTodosList
+// Show Add Item Modal
+function showAddItemDialog(){
+  addTitleEl.value = ""
+  addDescriptionEl.value = ""
+  addTimeEl.value = ""
+
+  modalMode = "new"
   showDialog()
-  renderTodos()
 }
 
 
+
+
+
+// add Item
+function addTodo(todo){
+  todoList.push(todo)
+}
+
+// Edit todo
+function editTodo(id,todo){
+  let index = todoList.findIndex((todo)=>{
+    return todo.id === editingItemid
+  })
+  // todoList[index] = new ToDo(id, todo.title,todo.description, todo.dateDone)
+  todoList.splice(index ,1,new ToDo(id, todo.title,todo.description, todo.dateDone))
+  renderTodos()
+}
 
 //Delete Item
 function deleteItem(id){
   const newTodosList = todoList.filter((todo)=>{
     return todo.id !== id
   })
-  todoList = newTodosList
+  todoList = newTodosList;
   renderTodos()
 }
 
